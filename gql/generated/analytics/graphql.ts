@@ -59,17 +59,20 @@ export type Geography = {
   type: Scalars['String'];
 };
 
-/** Indicators(id, name, long_description, short_description, category, type, slug, unit, geography, department, scheme) */
+/** Indicators(id, name, long_description, short_description, category, type, slug, unit, geography, department, data_source, scheme, parent) */
 export type Indicators = {
   __typename?: 'Indicators';
+  /** Contains a list of sub-indicators. */
   category?: Maybe<Scalars['String']>;
   department?: Maybe<Department>;
   geography?: Maybe<Geography>;
   longDescription?: Maybe<Scalars['String']>;
   name: Scalars['String'];
+  parent?: Maybe<Indicators>;
   scheme?: Maybe<Scheme>;
   shortDescription?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
+  /** Defines the type of indicator that is Raw, Derived, etc. */
   type: Scalars['String'];
   unit: Unit;
 };
